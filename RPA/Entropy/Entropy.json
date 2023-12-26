@@ -1,0 +1,78 @@
+{
+  "ComponentIndexes": {},
+  "ControlUniqueGuids": {},
+  "ControlUniqueIds": {
+    "App": 1,
+    "Button1": 7,
+    "Button2": 11,
+    "Host": 3,
+    "Label1": 10,
+    "Screen1": 4,
+    "TextInput1": 5,
+    "TextInput2": 6
+  },
+  "FunctionParamsInvariantScripts": {},
+  "FunctionParamsInvariantScriptsOnInstances": {},
+  "HeaderLastSavedDateTimeUTC": "12/26/2023 07:29:02",
+  "IsLegacyComponentAllowGlobalScopeCase": false,
+  "LocalConnectionIDReferences": {
+    "70064e78-d1b2-4216-8a91-fb4649c87f80": "\"/providers/microsoft.powerapps/apis/shared_diffcheckerip/connections/f3ac33a24ac047ad9b6e1178dc9c5dec\""
+  },
+  "LocalDatabaseReferencesAsEmpty": false,
+  "LocalResourceFileNames": {},
+  "LocalResourceRootPaths": {},
+  "OrderComponentMetadata": {},
+  "OrderComponentTemplate": {},
+  "OrderDataSource": {
+    "_wordsRequest": 2,
+    "CustomGallerySample": 1,
+    "Diffchecker": 0
+  },
+  "OrderGroupControls": {},
+  "OrderPcfTemplate": {},
+  "OrderTemplate": {},
+  "OrderXMLTemplate": {
+    "button": 1,
+    "label": 2,
+    "text": 0
+  },
+  "OverridablePropertiesEntry": {
+    "App": {},
+    "Button1": {},
+    "Button2": {},
+    "Host": {},
+    "Label1": {},
+    "Screen1": {},
+    "TextInput1": {},
+    "TextInput2": {}
+  },
+  "PCFDynamicSchemaForIRRetrievalEntry": {},
+  "PCFTemplateEntry": {},
+  "PublishOrderIndices": {
+    "App": 0,
+    "Button1": 2,
+    "Button2": 3,
+    "Host": 0,
+    "Label1": 4,
+    "Screen1": 0,
+    "TextInput1": 0,
+    "TextInput2": 1
+  },
+  "ResourcesJsonIndices": {
+    "Image-SampleImage": 0
+  },
+  "RuleScreenIdWithoutScreen": {},
+  "TemplateVersions": {},
+  "VolatileProperties": {
+    "AnalysisLoadTime": 0.0819299,
+    "ControlCount": {
+      "button": 1,
+      "htmlViewer": 1,
+      "label": 2,
+      "screen": 1,
+      "text": 2
+    },
+    "DeserializationLoadTime": 1.1941107
+  },
+  "WasLocalDatabaseReferencesEmpty": true
+}

@@ -1,0 +1,35 @@
+Screen1 As screen:
+
+    TextInput1 As text:
+        Default: ="Text input"
+        X: =21
+        Y: =40
+        ZIndex: =2
+
+    TextInput2 As text:
+        Default: ="Text input"
+        X: =393
+        Y: =40
+        ZIndex: =3
+
+    Button1 As button:
+        OnSelect: |-
+            =Collect(_wordsRequest,TextInput1.Text);
+            Collect(_wordsRequest,TextInput2.Text)
+        Text: ="Button"
+        X: =898
+        Y: =116
+        ZIndex: =6
+
+    Label1 As label:
+        Text: ="Git Commit"
+        X: =87
+        Y: =519
+        ZIndex: =8
+
+    Button2 As button:
+        Text: ="Jira"
+        X: =1058
+        Y: =334
+        ZIndex: =9
+
