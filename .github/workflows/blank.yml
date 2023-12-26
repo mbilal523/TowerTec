@@ -22,6 +22,12 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Clone repository, install dependencies, and run Gulp
+        run: |
+         git clone https://github.com/microsoft/powerplatform-actions.git
+         cd powerplatform-actions
+         npm install
+         gulp
       - name: Install Power Platform Tools
         uses: microsoft/powerplatform-actions/actions-install@v1
 
