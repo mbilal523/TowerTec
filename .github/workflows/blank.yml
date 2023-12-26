@@ -30,7 +30,7 @@ jobs:
         with:
           environment-url: 'https://orgb7f7bf9c.crm.dynamics.com/'
           user-name: ${{ secrets.MYUSERNAME }}
-          password-secret: ${{ secrets.MYPASSWORD }}
+          password-secret: ${{ secrets.PASSWORD }}
           solution-name: aSolution
           solution-output-file: 'aSolution.zip'
           working-directory: 'out'
@@ -48,4 +48,4 @@ jobs:
         with:
           environment-url: 'https://orgb7f7bf9c.crm.dynamics.com/'
           user-name: ${{ secrets.MYUSERNAME }}
-          password-secret: ${{ secrets.MYPASSWORD }}
+          password-secret: ${{ secrets.PASSWORD }}
