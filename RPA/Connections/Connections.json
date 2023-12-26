@@ -1,0 +1,20 @@
+{
+  "70064e78-d1b2-4216-8a91-fb4649c87f80": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Premium",
+      "displayName": "Diffchecker",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1659/1.0.1659.3460/diffcheckerip/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_diffcheckerip",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Diffchecker"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "70064e78-d1b2-4216-8a91-fb4649c87f80"
+  }
+}

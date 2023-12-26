@@ -1,0 +1,80 @@
+Screen1 As screen:
+
+    TextInput1 As text:
+        Default: ="Text input"
+        X: =21
+        Y: =40
+        ZIndex: =2
+
+    TextInput2 As text:
+        Default: ="Text input"
+        X: =393
+        Y: =40
+        ZIndex: =3
+
+    HtmlText1 As htmlViewer:
+        Height: =295
+        HtmlText: |-
+            =//Diffchecker.CheckText("you are my best friend","you are not my best friend",{diff_level:"word"}).rows
+            With({_originalInput: TextInput1.Text, _compareInput: TextInput2.Text},
+                With({
+                    _original:
+                        With({_ori:Filter(MatchAll(_originalInput, "\S*(\s|\n?)"), !IsBlank(FullMatch))},
+                            ForAll(Sequence(CountRows(_ori)),
+                               {Word: Last(FirstN(_ori, Value)).FullMatch, Pos: Value}
+                            )
+                        ),
+                    _changes:
+                        With({_ori:Filter(MatchAll(_compareInput, "\S*(\s|\n?)"), !IsBlank(FullMatch))},
+                            ForAll(Sequence(CountRows(_ori)),
+                                {Word: Last(FirstN(_ori, Value)).FullMatch, Pos: Value}
+                            )
+                        )
+                    },
+                    Concat(_original As _ori, 
+                        With({_change: LookUp(_changes, Pos=_ori.Pos)},
+                            If(_ori.Word <> _change.Word, "<s>" & _ori.Word & "</s>&nbsp;<font color=red>" & _change.Word & "</font>", _ori.Word) & "&nbsp;"
+                        )
+                    )
+                )
+            )
+        Width: =704
+        X: =99
+        Y: =234
+        ZIndex: =4
+
+    Button1 As button:
+        OnSelect: |-
+            =Collect(_wordsRequest,TextInput1.Text);
+            Collect(_wordsRequest,TextInput2.Text)
+        Text: ="Button"
+        X: =898
+        Y: =116
+        ZIndex: =6
+
+    Label2 As label:
+        Height: =154
+        Text: |-
+            =Text(
+            	CountRows(
+            		Filter(
+            			_wordsRequest;
+                        Find(Value(_wordsRequest,Value);TextInput1.Text)
+            		)
+            	)
+            	/
+            	CountRows(
+            		_wordsRequest
+            	)* 100
+            ) & "%"
+        Width: =432
+        X: =563
+        Y: =342
+        ZIndex: =7
+
+    Label1 As label:
+        Text: ="Git Commit"
+        X: =87
+        Y: =519
+        ZIndex: =8
+

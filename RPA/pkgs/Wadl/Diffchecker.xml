@@ -1,0 +1,136 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://unitedstates-002.azure-apim.net/apim/diffcheckerip" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="Diffchecker" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="Diffchecker">Diffchecker will compare your inputs to find the difference between two text files, images, PDFs and many other.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://unitedstates-002.azure-apim.net/apim/diffcheckerip" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="CheckText_param_body_def_left_def" />
+      <string name="CheckText_param_body_def_right_def" />
+      <object name="CheckText_param_body_def">
+        <property name="left" type="string" />
+        <property name="right" type="string" />
+      </object>
+      <boolean name="CheckText_responses_200_def_rows_def_items_def_end_def" />
+      <string name="CheckText_responses_200_def_rows_def_items_def_left_def_chunks_def_items_def_value_def" />
+      <string name="CheckText_responses_200_def_rows_def_items_def_left_def_chunks_def_items_def_type_def" />
+      <object name="CheckText_responses_200_def_rows_def_items_def_left_def_chunks_def_items_def">
+        <property name="value" type="string" />
+        <property name="type" type="string" />
+      </object>
+      <array typeRef="CheckText_responses_200_def_rows_def_items_def_left_def_chunks_def_items_def" name="CheckText_responses_200_def_rows_def_items_def_left_def_chunks_def" />
+      <integer name="CheckText_responses_200_def_rows_def_items_def_left_def_line_def" />
+      <object name="CheckText_responses_200_def_rows_def_items_def_left_def">
+        <property name="chunks" typeRef="CheckText_responses_200_def_rows_def_items_def_left_def_chunks_def" />
+        <property name="line" type="integer" />
+      </object>
+      <string name="CheckText_responses_200_def_rows_def_items_def_right_def_chunks_def_items_def_value_def" />
+      <string name="CheckText_responses_200_def_rows_def_items_def_right_def_chunks_def_items_def_type_def" />
+      <object name="CheckText_responses_200_def_rows_def_items_def_right_def_chunks_def_items_def">
+        <property name="value" type="string" />
+        <property name="type" type="string" />
+      </object>
+      <array typeRef="CheckText_responses_200_def_rows_def_items_def_right_def_chunks_def_items_def" name="CheckText_responses_200_def_rows_def_items_def_right_def_chunks_def" />
+      <integer name="CheckText_responses_200_def_rows_def_items_def_right_def_line_def" />
+      <object name="CheckText_responses_200_def_rows_def_items_def_right_def">
+        <property name="chunks" typeRef="CheckText_responses_200_def_rows_def_items_def_right_def_chunks_def" />
+        <property name="line" type="integer" />
+      </object>
+      <boolean name="CheckText_responses_200_def_rows_def_items_def_insideChanged_def" />
+      <boolean name="CheckText_responses_200_def_rows_def_items_def_start_def" />
+      <object name="CheckText_responses_200_def_rows_def_items_def">
+        <property name="end" type="boolean" />
+        <property name="left" typeRef="CheckText_responses_200_def_rows_def_items_def_left_def" />
+        <property name="right" typeRef="CheckText_responses_200_def_rows_def_items_def_right_def" />
+        <property name="insideChanged" type="boolean" />
+        <property name="start" type="boolean" />
+      </object>
+      <array typeRef="CheckText_responses_200_def_rows_def_items_def" name="CheckText_responses_200_def_rows_def" />
+      <integer name="CheckText_responses_200_def_added_def" />
+      <integer name="CheckText_responses_200_def_removed_def" />
+      <object name="CheckText_responses_200_def">
+        <property name="rows" typeRef="CheckText_responses_200_def_rows_def" />
+        <property name="added" type="integer" />
+        <property name="removed" type="integer" />
+      </object>
+      <string name="CheckImage_param_body_def_left_image_def" />
+      <string name="CheckImage_param_body_def_right_image_def" />
+      <object name="CheckImage_param_body_def">
+        <property name="left_image" type="string" />
+        <property name="right_image" type="string" />
+      </object>
+      <string name="CheckImage_responses_200_def_dataUrl_def" />
+      <object name="CheckImage_responses_200_def">
+        <property name="dataUrl" type="string" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://unitedstates-002.azure-apim.net/apim/diffcheckerip">
+    <resource path="/{connectionId}/public/text">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="CheckText" actionName="CheckText" siena:isDeprecated="false">
+        <doc title="Check text&#xA;Diffchecker will compare text to find the difference between two text files." />
+        <request>
+          <param style="query" name="output_type" type="xs:string" required="true" fixed="json">
+            <doc title="Specifies the type of output you receive in the response body." />
+            <option value="json" />
+            <option value="html" />
+            <option value="html_json" />
+          </param>
+          <param style="query" name="diff_level" type="xs:string" default="word">
+            <doc title="Specifies whether you want to diff by word or by character." />
+            <option value="character" />
+            <option value="word" />
+          </param>
+          <param style="header" name="Content-Type" type="xs:string" required="true" fixed="application/json" />
+          <representation mediaType="application/json">
+            <param style="plain" name="left" path="/left" type="xs:string" required="true">
+              <doc title="Left" />
+            </param>
+            <param style="plain" name="right" path="/right" type="xs:string" required="true">
+              <doc title="Right" />
+            </param>
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:CheckText_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/public/image">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="CheckImage" actionName="CheckImage" siena:isDeprecated="false">
+        <doc title="Check image&#xA;Find the difference between pictures or other images!" />
+        <request>
+          <param style="query" name="input_type" type="xs:string" required="true" fixed="json">
+            <doc title="Specifies the request content-type. Value must be one of 'json' or 'form'." />
+            <option value="json" />
+            <option value="form" />
+          </param>
+          <param style="query" name="output_type" type="xs:string" required="true" fixed="json">
+            <doc title="Specifies the type of output you receive in the response body." />
+            <option value="json" />
+            <option value="png" />
+          </param>
+          <param style="header" name="Content-Type" type="xs:string" required="true" fixed="application/json" />
+          <representation mediaType="application/json">
+            <param style="plain" name="left_image" path="/left_image" type="xs:string" required="true">
+              <doc title="Left image" />
+            </param>
+            <param style="plain" name="right_image" path="/right_image" type="xs:string" required="true">
+              <doc title="Right image" />
+            </param>
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:CheckImage_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_diffcheckerip" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>
