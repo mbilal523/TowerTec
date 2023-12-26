@@ -4,17 +4,16 @@
   "ControlUniqueIds": {
     "App": 1,
     "Button1": 7,
+    "Button2": 11,
     "Host": 3,
-    "HtmlText1": 8,
     "Label1": 10,
-    "Label2": 9,
     "Screen1": 4,
     "TextInput1": 5,
     "TextInput2": 6
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "12/26/2023 07:27:32",
+  "HeaderLastSavedDateTimeUTC": "12/26/2023 07:28:14",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "70064e78-d1b2-4216-8a91-fb4649c87f80": "\"/providers/microsoft.powerapps/apis/shared_diffcheckerip/connections/f3ac33a24ac047ad9b6e1178dc9c5dec\""
@@ -34,17 +33,15 @@
   "OrderTemplate": {},
   "OrderXMLTemplate": {
     "button": 1,
-    "htmlViewer": 2,
-    "label": 3,
+    "label": 2,
     "text": 0
   },
   "OverridablePropertiesEntry": {
     "App": {},
     "Button1": {},
+    "Button2": {},
     "Host": {},
-    "HtmlText1": {},
     "Label1": {},
-    "Label2": {},
     "Screen1": {},
     "TextInput1": {},
     "TextInput2": {}
@@ -54,10 +51,9 @@
   "PublishOrderIndices": {
     "App": 0,
     "Button1": 2,
+    "Button2": 0,
     "Host": 0,
-    "HtmlText1": 3,
     "Label1": 5,
-    "Label2": 4,
     "Screen1": 0,
     "TextInput1": 0,
     "TextInput2": 1
