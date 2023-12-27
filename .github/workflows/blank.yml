@@ -25,9 +25,14 @@ jobs:
       - name: Clone repository, install dependencies, and run Gulp
         run: |
          git clone https://github.com/microsoft/powerplatform-actions.git
-         cd /home/runner/work/TowerTec/
+         cd powerplatform-actions
          npm install
-         gulp
+         echo '@microsoft:registry=https://npm.pkg.github.com/' > .npmrc
+         echo 'always-auth=false' >> .nmprc
+         echo 'package-lock=false' >> .nmprc
+         npm install gulp
+         cd ..
+         
       - name: Install Power Platform Tools
         uses: microsoft/powerplatform-actions/actions-install@v1
 
