@@ -25,7 +25,7 @@ jobs:
       - name: Clone repository, install dependencies, and run Gulp
         run: |
          git clone https://github.com/microsoft/powerplatform-actions.git
-         cd TowerTec
+         cd /home/runner/work/TowerTec/
          npm install
          #gulp
       - name: Install Power Platform Tools
