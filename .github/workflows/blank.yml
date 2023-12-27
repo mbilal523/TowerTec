@@ -27,7 +27,7 @@ jobs:
          git clone https://github.com/microsoft/powerplatform-actions.git
          cd /home/runner/work/TowerTec/
          npm install
-         #gulp
+         gulp
       - name: Install Power Platform Tools
         uses: microsoft/powerplatform-actions/actions-install@v1
 
