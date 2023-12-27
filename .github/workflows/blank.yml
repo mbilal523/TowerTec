@@ -25,7 +25,7 @@ jobs:
       - name: Clone repository, install dependencies, and run Gulp
         run: |
          git clone https://github.com/microsoft/powerplatform-actions.git
-         cd powerplatform-actions
+         cd powerplatform-actions && ls
          #npm install
          #gulp
       - name: Install Power Platform Tools
