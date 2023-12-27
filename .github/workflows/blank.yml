@@ -18,21 +18,10 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Clone repository, install dependencies, and run Gulp
-        run: |
-         git clone https://github.com/microsoft/powerplatform-actions.git
-         cd powerplatform-actions
-         npm install
-         echo '@microsoft:registry=https://npm.pkg.github.com/' > .npmrc
-         echo 'always-auth=false' >> .nmprc
-         echo 'package-lock=false' >> .nmprc
-         npm install gulp
-         cd ..
-         
       - name: Install Power Platform Tools
         uses: microsoft/powerplatform-actions/actions-install@v1
 
