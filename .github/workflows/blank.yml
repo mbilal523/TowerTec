@@ -26,7 +26,6 @@ jobs:
         run: |
          git clone https://github.com/microsoft/powerplatform-actions.git
          cd powerplatform-actions
-         ls
          #npm install
          #gulp
       - name: Install Power Platform Tools
