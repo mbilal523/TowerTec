@@ -32,8 +32,8 @@ jobs:
           user-name: ${{ secrets.MYUSERNAME }}
           password-secret: ${{ secrets.PASSWORD }}
           solution-name: aSolution
-          solution-output-file: 'aSolution.zip'
-          working-directory: 'out'
+          solution-output-file: '/out/aSolution.zip'
+          #working-directory: 'out'
 
       - name: Unpack Solution
         uses: microsoft/powerplatform-actions/unpack-solution@v1
