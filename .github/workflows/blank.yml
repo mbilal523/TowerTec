@@ -28,7 +28,7 @@ jobs:
       - name: Export Solution
         uses: microsoft/powerplatform-actions/export-solution@v1
         with:
-          environment-url: 'https://orgb7f7bf9c.crm.dynamics.com/'
+          environment-url: 'https://orgdb1b1774.crm4.dynamics.com/'
           user-name: ${{ secrets.MYUSERNAME }}
           password-secret: ${{ secrets.PASSWORD }}
           solution-name: aSolution
