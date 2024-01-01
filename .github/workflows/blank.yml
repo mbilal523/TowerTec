@@ -31,6 +31,7 @@ jobs:
           environment-url: 'https://orgdb1b1774.crm4.dynamics.com/'
           user-name: ${{ secrets.MYUSERNAME }}
           password-secret: ${{ secrets.PASSWORD }}
+          tenant-id: 302edaf0-65d6-449a-a796-b83cfb733f0d
           solution-name: aSolution
           solution-output-file: '/out/aSolution.zip'
           #working-directory: 'out'
