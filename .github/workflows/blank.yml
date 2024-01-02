@@ -33,8 +33,9 @@ jobs:
         uses: microsoft/powerplatform-actions/who-am-i@v0
         with:
          environment-url: 'https://orgdb1b1774.crm4.dynamics.com/'
-         user-name: ${{ secrets.MYUSERNAME}}
-         password-secret: ${{ secrets.MYPASSWORD }}
+         app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
+         client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
+         tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
         
       - name: Pack solution
         uses: microsoft/powerplatform-actions/pack-solution@v0
