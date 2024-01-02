@@ -33,7 +33,7 @@ jobs:
         uses: microsoft/powerplatform-actions/who-am-i@v0
         with:
          environment-url: ${{https://orgdb1b1774.crm4.dynamics.com}}
-         user-name: ${{env.PCFC POC}}
+         user-name: ${{ secrets.MYUSERNAME}}
          password-secret: ${{ secrets.MYPASSWORD }}
         
       - name: Pack solution
