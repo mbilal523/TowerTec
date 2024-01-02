@@ -37,34 +37,16 @@ jobs:
          client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
          tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
         
-      - name: Pack solution
-        uses: microsoft/powerplatform-actions/pack-solution@v0
-        with:
-         solution-folder: ${{ inputs.solution_source_folder}}/${{ inputs.solution_name }}
-         solution-file: ${{ inputs.solution_outbound_folder}}/${{ inputs.solution_name }}.zip
-         solution-type: Unmanaged
-
-      - name: Import solution as unmanaged to build env
-        uses: microsoft/powerplatform-actions/import-solution@v0
+      - name: Export solution as managed
+        uses: microsoft/powerplatform-actions/export-solution@v0
         with:
          environment-url: 'https://orgdb1b1774.crm4.dynamics.com/'
          app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
          client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
          tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
-         solution-file: ${{ inputs.solution_outbound_folder}}/${{ inputs.solution_name }}.zip
-         force-overwrite: true
-         publish-changes: true
-
-      # - name: Export solution as managed
-      #   uses: microsoft/powerplatform-actions/export-solution@v0
-      #   with:
-      #    environment-url: 'https://orgdb1b1774.crm4.dynamics.com/'
-      #    app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
-      #    client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
-      #    tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
-      #    solution-name: ${{ inputs.solution_name }}
-      #    managed: true
-      #    solution-output-file: ${{ inputs.solution_shipping_folder}}/${{ inputs.solution_name }}_managed.zip
+         solution-name: ${{ inputs.solution_name }}
+         managed: true
+         solution-output-file: ${{ inputs.solution_shipping_folder}}/${{ inputs.solution_name }}_managed.zip
 
       # - name: Unpack Solution
       #   uses: microsoft/powerplatform-actions/unpack-solution@v1
