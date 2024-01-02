@@ -72,17 +72,17 @@ jobs:
          tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
          solution-name: 'WrapTest'
          solution-output-file: 'out/exported//WrapTest.zip'
-      # - name: Unpack Solution
-      #   uses: microsoft/powerplatform-actions/unpack-solution@v1
-      #   with:
-      #     solution-file: 'out/aSolution1.zip'
-      #     solution-folder: 'out/solutions/solution one'
-      #     solution-type: 'Unmanaged'
-      #     overwrite-files: true
+      - name: Unpack Solution
+        uses: microsoft/powerplatform-actions/unpack-solution@v1
+        with:
+          solution-file: 'out/exported//WrapTest.zip'
+          solution-folder: 'out/solutions//WrapTest'
+          solution-type: 'Unmanaged'
+          overwrite-files: true
 
-      # - name: Publish Solution
-      #   uses: microsoft/powerplatform-actions/publish-solution@v1
-      #   with:
-      #     environment-url: 'https://orgb7f7bf9c.crm.dynamics.com/'
-      #     user-name: ${{ secrets.MYUSERNAME }}
-      #     password-secret: ${{ secrets.PASSWORD }}
+      - name: Publish Solution
+        uses: microsoft/powerplatform-actions/publish-solution@v1
+        with:
+          environment-url: 'https://orgb7f7bf9c.crm.dynamics.com/'
+          user-name: ${{ secrets.MYUSERNAME }}
+          password-secret: ${{ secrets.PASSWORD }}
