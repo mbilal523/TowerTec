@@ -80,9 +80,10 @@ jobs:
           solution-type: 'Unmanaged'
           overwrite-files: true
 
-      - name: Publish Solution
-        uses: microsoft/powerplatform-actions/publish-solution@v1
+      - name: branch-solution, prepare it for a PullRequest
+        uses: microsoft/powerplatform-actions/branch-solution@v0
         with:
-          environment-url: 'https://orgb7f7bf9c.crm.dynamics.com/'
-          user-name: ${{ secrets.MYUSERNAME }}
-          password-secret: ${{ secrets.PASSWORD }}
+         solution-folder: 'out/solutions//WrapTest'
+         solution-target-folder: 'out/solutions//WrapTest'
+         repo-token: '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'
+         allow-empty-commit: true
