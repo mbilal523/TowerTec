@@ -84,6 +84,6 @@ jobs:
         uses: microsoft/powerplatform-actions/branch-solution@v0
         with:
          solution-folder: 'out/solutions//WrapTest'
-         solution-target-folder: 'https://github.com/mbilal523/TowerTec//AJC-15-Dev'
+         solution-target-folder: 'solutions//AJC-15-Dev'
          repo-token: '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'
          allow-empty-commit: true
