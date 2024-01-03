@@ -90,11 +90,11 @@ jobs:
          managed: true
          solution-output-file: 'out/exported//WrapTest.zip'
 
-  #   - name: Upload the ready to ship solution to GH artifact store
-  #     uses: actions/upload-artifact@v2
-  #     with:
-  #       name: managedSolutions
-  #       path: ${{ inputs.solution_shipping_folder}}/
+    - name: Upload the ready to ship solution to GH artifact store
+      uses: actions/upload-artifact@v2
+      with:
+        name: managedSolutions
+        path: out/ship/
 
   # release-to-staging:
   #   needs: [ convert-to-managed ]
