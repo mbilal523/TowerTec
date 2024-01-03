@@ -1,0 +1,89 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+   inputs:
+     # Change this value
+     solution_name:
+       description: 'name of the solution to worked on from Power Platform'
+       required: true
+       default: “Your solution name here”
+      #Do Not change these values
+     solution_exported_folder:
+       description: 'folder name for staging the exported solution '
+       required: true
+       default: out/exported/
+     solution_folder:
+       description: 'staging the unpacked solution folder before check-in '
+       required: true
+       default: out/solutions/
+     solution_target_folder: 
+      description: 'folder name to be created and checked in '
+      required: true
+      default: solutions/
+env:
+ ENVIRONMENT_URL: 'https://orgdb1b1774.crm4.dynamics.com/'
+ CLIENT_ID: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
+ TENANT_ID: '302edaf0-65d6-449a-a796-b83cfb733f0d'
+permissions:
+ contents: write
+  
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: windows-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Install Power Platform Tools
+        uses: microsoft/powerplatform-actions/actions-install@v1
+
+      - uses: actions/checkout@v2
+        with:
+         lfs: true
+
+      - name: who-am-i action
+        uses: microsoft/powerplatform-actions/who-am-i@v0
+        with:
+         environment-url: 'https://orgdb1b1774.crm4.dynamics.com/'
+         app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
+         client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
+         tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
+        
+      - name: Export solution action
+        uses: microsoft/powerplatform-actions/export-solution@v0
+        with:
+         environment-url: 'https://orgdb1b1774.crm4.dynamics.com/'
+         app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
+         client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
+         tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
+         solution-name: 'WrapTest'
+         solution-output-file: 'out/exported//WrapTest.zip'
+      - name: Unpack Solution
+        uses: microsoft/powerplatform-actions/unpack-solution@v1
+        with:
+          solution-file: 'out/exported//WrapTest.zip'
+          solution-folder: 'out/solutions//WrapTest'
+          solution-type: 'Unmanaged'
+          overwrite-files: true
+
+      - name: branch-solution, prepare it for a PullRequest
+        uses: microsoft/powerplatform-actions/branch-solution@v0
+        with:
+         solution-folder: 'out/solutions//WrapTest'
+         solution-target-folder: 'out/solutions//WrapTest'
+         repo-token: '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'
+         allow-empty-commit: true
