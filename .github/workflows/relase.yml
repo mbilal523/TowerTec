@@ -11,7 +11,7 @@ on:
       solution_name:
         description: 'The solution name.'
         type: string
-        default: ALMLab       
+        default: WrapTest      
       solution_shipping_folder:
         description: 'folder name for staging the exported solution *do not change*'        
         type: string
@@ -94,7 +94,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: managedSolutions
-        path: out/ship/
+        path: 'out/ship//'
 
   release-to-staging:
     needs: [ convert-to-managed ]
@@ -111,7 +111,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: managedSolutions
-        path: out/ship/
+        path: 'out/ship//'
     - name: Import solution to prod env
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
