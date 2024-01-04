@@ -58,7 +58,7 @@ jobs:
          client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
          tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
          solution-name: 'AJC16Wraptest'
-         solution-output-file: 'out/exported//WrapTest.zip'
+         solution-output-file: 'out/exported//AJC16Wraptest.zip'
          
     - name: unpack-solution action
       uses: microsoft/powerplatform-actions/unpack-solution@v0
