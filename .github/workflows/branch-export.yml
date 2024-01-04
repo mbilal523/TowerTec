@@ -9,7 +9,7 @@ on:
       solution_name:
         description: 'name of the solution to worked on from Power Platform'
         required: true
-        default: ALMLab
+        default: AJC16Wraptest
        #Do Not change these values
       solution_exported_folder:
         description: 'folder name for staging the exported solution *do not change*'
@@ -58,20 +58,20 @@ jobs:
          app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
          client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
          tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
-         solution-name: 'WrapTest'
+         solution-name: 'AJC16Wraptest'
          solution-output-file: 'out/exported//WrapTest.zip'
     - name: unpack-solution action
       uses: microsoft/powerplatform-actions/unpack-solution@v0
       with:
-        solution-file: 'out/exported//WrapTest.zip'
-        solution-folder: 'out/solutions//WrapTest'
+        solution-file: 'out/exported//AJC16Wraptest.zip'
+        solution-folder: 'out/solutions//AJC16Wraptest'
         solution-type: 'Unmanaged'
         overwrite-files: true
 
     - name: branch-solution, prepare it for a PullRequest
       uses: microsoft/powerplatform-actions/branch-solution@v0
       with:
-         solution-folder: 'out/solutions//WrapTest'
-         solution-target-folder: 'solutions//AJC-15-Branch'
+         solution-folder: 'out/solutions//AJC16Wraptest'
+         solution-target-folder: 'solutions//AJC16Wraptest'
          repo-token: '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'
          allow-empty-commit: true
