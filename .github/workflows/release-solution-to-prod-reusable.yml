@@ -64,7 +64,7 @@ jobs:
     - name: Pack solution
       uses: microsoft/powerplatform-actions/pack-solution@v0
       with:
-        solution-folder: 'out/solutions//AJC16Wraptest'
+        solution-folder: 'solutions//AJC16Wraptest'
         solution-file: 'out/exported//AJC16Wraptest.zip'
         solution-type: Unmanaged
 
