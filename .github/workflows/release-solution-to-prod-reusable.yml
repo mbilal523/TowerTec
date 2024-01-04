@@ -88,7 +88,7 @@ jobs:
          tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
          solution-name: 'AJC16Wraptest'
          managed: true
-         solution-output-file: 'out/exported//AJC16Wraptest.zip'
+         solution-output-file: 'out/ship//AJC16Wraptest_managed.zip'
          
     - name: Upload the ready to ship solution to GH artifact store
       uses: actions/upload-artifact@v2
@@ -111,7 +111,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: managedSolutions
-        path: 'out/ship//'
+        path: 'out/release'
     - name: Import solution to prod env
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
@@ -119,6 +119,6 @@ jobs:
          app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
          client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
          tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
-         solution-file: 'out/exported//AJC16Wraptest.zip'
+         solution-file: 'out/release//AJC16Wraptest_managed.zip'
          force-overwrite: true
          publish-changes: true
