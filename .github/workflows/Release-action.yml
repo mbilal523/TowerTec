@@ -15,7 +15,7 @@ jobs:
       solution_name: AJC16Wraptest
       #Update your values here
       BUILD_ENVIRONMENT_URL: 'https://orgdb1b1774.crm4.dynamics.com'
-      PRODUCTION_ENVIRONMENT_URL: 'https://make.powerapps.com/environments/7c864a92-d2e3-e5af-a0c7-cb90440fb444/home'
+      PRODUCTION_ENVIRONMENT_URL: 'https://org3221d859.crm4.dynamics.com'
       CLIENT_ID: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
       TENANT_ID: '302edaf0-65d6-449a-a796-b83cfb733f0d'      
     secrets:
