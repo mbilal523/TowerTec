@@ -14,7 +14,7 @@ jobs:
       #You can specify the solution name here
       solution_name: AJC16Wraptest
       #Update your values here
-      BUILD_ENVIRONMENT_URL: 'https://org3221d859.crm4.dynamics.com'
+      BUILD_ENVIRONMENT_URL: 'https://orgdb1b1774.crm4.dynamics.com'
       PRODUCTION_ENVIRONMENT_URL: 'https://org3221d859.crm4.dynamics.com'
       CLIENT_ID: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
       TENANT_ID: '302edaf0-65d6-449a-a796-b83cfb733f0d'      
