@@ -16,7 +16,7 @@ jobs:
       #Update your values here
       BUILD_ENVIRONMENT_URL: 'https://org3221d859.crm4.dynamics.com'
       PRODUCTION_ENVIRONMENT_URL: 'https://org41c53d90.crm4.dynamics.com'
-      CLIENT_ID: ${{ secrets.CLIENTEID }}
+      CLIENT_ID: ${{ secrets.MYAPPID }}
       TENANT_ID: ${{ secrets.MYTENANTID }}      
     secrets:
       envSecret: ${{ secrets.CLIENTEID }}
