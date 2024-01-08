@@ -8,15 +8,15 @@ on:
 permissions:
   contents: write
 jobs:
-  Release-solution-UATPROD:
+  Release-solution-WrapT:
     uses: ./.github/workflows/release-solution-to-prod-reusable.yml
     with:
       #You can specify the solution name here
-      solution_name: UATPROD
+      solution_name: WrapT
       #Update your values here
-      BUILD_ENVIRONMENT_URL: 'https://org3221d859.crm4.dynamics.com'
-      PRODUCTION_ENVIRONMENT_URL: 'https://org41c53d90.crm4.dynamics.com'
-      CLIENT_ID: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
+      BUILD_ENVIRONMENT_URL: 'https://org41c53d90.crm4.dynamics.com'
+      PRODUCTION_ENVIRONMENT_URL: 'https://org3221d859.crm4.dynamics.com'
+      CLIENT_ID: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
       TENANT_ID: '302edaf0-65d6-449a-a796-b83cfb733f0d'      
     secrets:
-      envSecret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
+      envSecret: '2Xb8Q~8sBZgv.lvoEpx6huTUSFvmVAKTcN4cRdzN'
