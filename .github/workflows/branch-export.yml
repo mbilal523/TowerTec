@@ -9,7 +9,7 @@ on:
       solution_name:
         description: 'name of the solution to worked on from Power Platform'
         required: true
-        default: AJC16Wraptest
+        default: UATPROD
        #Do Not change these values
       solution_exported_folder:
         description: 'folder name for staging the exported solution *do not change*'
@@ -25,7 +25,7 @@ on:
        default: solutions/
 env:
 #edit your values here
-  ENVIRONMENT_URL: 'https://orgdb1b1774.crm4.dynamics.com/'
+  ENVIRONMENT_URL: 'https://org3221d859.crm4.dynamics.com'
   CLIENT_ID: ${{ secrets.CLIENTEID }}
   TENANT_ID: ${{ secrets.MYTENANTID }}
 permissions:
@@ -45,7 +45,7 @@ jobs:
     - name: who-am-i action
       uses: microsoft/powerplatform-actions/who-am-i@v0
       with:
-         environment-url: 'https://orgdb1b1774.crm4.dynamics.com/'
+         environment-url: 'https://org3221d859.crm4.dynamics.com'
          app-id: ${{ secrets.MYAPPID }}
          client-secret: ${{ secrets.CLIENTEID }}
          tenant-id: ${{ secrets.MYTENANTID }} 
@@ -53,25 +53,25 @@ jobs:
     - name: export-solution action
       uses: microsoft/powerplatform-actions/export-solution@v0
       with:
-         environment-url: 'https://orgdb1b1774.crm4.dynamics.com/'
+         environment-url: 'https://org3221d859.crm4.dynamics.com'
          app-id: ${{ secrets.MYAPPID }}
          client-secret: ${{ secrets.CLIENTEID }}
          tenant-id: ${{ secrets.MYTENANTID }} 
-         solution-name: 'AJC16Wraptest'
-         solution-output-file: 'out/exported//AJC16Wraptest.zip'
+         solution-name: 'UATPROD'
+         solution-output-file: 'out/exported//UATPROD.zip'
          
     - name: unpack-solution action
       uses: microsoft/powerplatform-actions/unpack-solution@v0
       with:
-        solution-file: 'out/exported//AJC16Wraptest.zip'
-        solution-folder: 'out/solutions//AJC16Wraptest'
+        solution-file: 'out/exported//UATPROD.zip'
+        solution-folder: 'out/solutions//UATPROD'
         solution-type: 'Unmanaged'
         overwrite-files: true
 
     - name: branch-solution, prepare it for a PullRequest
       uses: microsoft/powerplatform-actions/branch-solution@v0
       with:
-         solution-folder: 'out/solutions//AJC16Wraptest'
-         solution-target-folder: 'solutions//AJC16Wraptest'
+         solution-folder: 'out/solutions//UATPROD'
+         solution-target-folder: 'solutions//UATPROD'
          repo-token: ${{ secrets.GITHUBTOKEN }}
          allow-empty-commit: true
