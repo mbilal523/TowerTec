@@ -26,8 +26,8 @@ on:
 env:
 #edit your values here
   ENVIRONMENT_URL: 'https://orgdb1b1774.crm4.dynamics.com/'
-  CLIENT_ID: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
-  TENANT_ID: '302edaf0-65d6-449a-a796-b83cfb733f0d'
+  CLIENT_ID: ${{ secrets.CLIENTEID }}
+  TENANT_ID: ${{ secrets.MYTENANTID }}
 permissions:
   contents: write
 jobs:
@@ -46,17 +46,17 @@ jobs:
       uses: microsoft/powerplatform-actions/who-am-i@v0
       with:
          environment-url: 'https://orgdb1b1774.crm4.dynamics.com/'
-         app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
-         client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
-         tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
+         app-id: ${{ secrets.MYAPPID }}
+         client-secret: ${{ secrets.CLIENTEID }}
+         tenant-id: ${{ secrets.MYTENANTID }} 
 
     - name: export-solution action
       uses: microsoft/powerplatform-actions/export-solution@v0
       with:
          environment-url: 'https://orgdb1b1774.crm4.dynamics.com/'
-         app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
-         client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
-         tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
+         app-id: ${{ secrets.MYAPPID }}
+         client-secret: ${{ secrets.CLIENTEID }}
+         tenant-id: ${{ secrets.MYTENANTID }} 
          solution-name: 'AJC16Wraptest'
          solution-output-file: 'out/exported//AJC16Wraptest.zip'
          
@@ -73,5 +73,5 @@ jobs:
       with:
          solution-folder: 'out/solutions//AJC16Wraptest'
          solution-target-folder: 'solutions//AJC16Wraptest'
-         repo-token: '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'
+         repo-token: ${{ secrets.GITHUBTOKEN }}
          allow-empty-commit: true
