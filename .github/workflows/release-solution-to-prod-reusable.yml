@@ -73,7 +73,7 @@ jobs:
       with:
         environment-url: 'https://orgdb1b1774.crm4.dynamics.com/'
         app-id: ${{ secrets.MYAPPID }}
-        client-secret: ${{ secrets.CLIENTEID }}
+        client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
         tenant-id: ${{ secrets.MYTENANTID }} 
         solution-file: 'out/exported//AJC16Wraptest.zip'
         force-overwrite: true
@@ -84,7 +84,7 @@ jobs:
       with:
          environment-url: 'https://orgdb1b1774.crm4.dynamics.com/'
          app-id: ${{ secrets.MYAPPID }}
-         client-secret: ${{ secrets.CLIENTEID }}
+         client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
          tenant-id: ${{ secrets.MYTENANTID }} 
          solution-name: 'AJC16Wraptest'
          managed: true
@@ -117,7 +117,7 @@ jobs:
       with:
          environment-url: 'https://org3221d859.crm4.dynamics.com'
          app-id: ${{ secrets.MYAPPID }}
-         client-secret: ${{ secrets.CLIENTEID }}
+         client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
          tenant-id: ${{ secrets.MYTENANTID }} 
          solution-file: 'out/release//AJC16Wraptest_managed.zip'
          force-overwrite: true
