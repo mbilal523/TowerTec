@@ -116,7 +116,7 @@ jobs:
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
          environment-url: 'https://org3221d859.crm4.dynamics.com'
-         app-id: ${{ secrets.MYAPPID }}
+         app-id: "c37f4956-70a3-4e74-a2d2-225b579d1a21"
          client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
          tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
          solution-file: 'out/release//AJC16Wraptest_managed.zip'
