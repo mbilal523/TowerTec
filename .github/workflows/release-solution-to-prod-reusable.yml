@@ -11,7 +11,7 @@ on:
       solution_name:
         description: 'The solution name.'
         type: string
-        default:  AJC16Wraptest      
+        default:  UATPROD      
       solution_shipping_folder:
         description: 'folder name for staging the exported solution *do not change*'        
         type: string
@@ -64,31 +64,31 @@ jobs:
     - name: Pack solution
       uses: microsoft/powerplatform-actions/pack-solution@v0
       with:
-        solution-folder: 'solutions//AJC16Wraptest'
-        solution-file: 'out/exported//AJC16Wraptest.zip'
+        solution-folder: 'solutions//UATPROD'
+        solution-file: 'out/exported//UATPROD.zip'
         solution-type: Unmanaged
 
     - name: Import solution as unmanaged to build env
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
-        environment-url: 'https://orgdb1b1774.crm4.dynamics.com/'
-        app-id: ${{ secrets.MYAPPID }}
+        environment-url: 'https://org3221d859.crm4.dynamics.com'
+        app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
         client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
         tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d' 
-        solution-file: 'out/exported//AJC16Wraptest.zip'
+        solution-file: 'out/exported//UATPROD.zip'
         force-overwrite: true
         publish-changes: true
 
     - name: Export solution as managed
       uses: microsoft/powerplatform-actions/export-solution@v0
       with:
-         environment-url: 'https://orgdb1b1774.crm4.dynamics.com/'
-         app-id: ${{ secrets.MYAPPID }}
+         environment-url: 'https://org3221d859.crm4.dynamics.com'
+         app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
          client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
          tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d' 
-         solution-name: 'AJC16Wraptest'
+         solution-name: 'UATPROD'
          managed: true
-         solution-output-file: 'out/ship//AJC16Wraptest_managed.zip'
+         solution-output-file: 'out/ship//UATPROD_managed.zip'
          
     - name: Upload the ready to ship solution to GH artifact store
       uses: actions/upload-artifact@v2
@@ -115,10 +115,10 @@ jobs:
     - name: Import solution to prod env
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
-         environment-url: 'https://org3221d859.crm4.dynamics.com'
-         app-id: "c37f4956-70a3-4e74-a2d2-225b579d1a21"
+         environment-url: 'https://org41c53d90.crm4.dynamics.com'
+         app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
          client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
          tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
-         solution-file: 'out/release//AJC16Wraptest_managed.zip'
+         solution-file: 'out/release//UATPROD_managed.zip'
          force-overwrite: true
          publish-changes: true
