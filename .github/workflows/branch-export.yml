@@ -9,7 +9,7 @@ on:
       solution_name:
         description: 'name of the solution to worked on from Power Platform'
         required: true
-        default: UATPROD
+        default: WrapT
        #Do Not change these values
       solution_exported_folder:
         description: 'folder name for staging the exported solution *do not change*'
@@ -57,21 +57,21 @@ jobs:
          app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
          client-secret: '2Xb8Q~8sBZgv.lvoEpx6huTUSFvmVAKTcN4cRdzN'
          tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
-         solution-name: 'UATPROD'
-         solution-output-file: 'out/exported//UATPROD.zip'
+         solution-name: 'WrapT'
+         solution-output-file: 'out/exported//WrapT.zip'
          
     - name: unpack-solution action
       uses: microsoft/powerplatform-actions/unpack-solution@v0
       with:
-        solution-file: 'out/exported//UATPROD.zip'
-        solution-folder: 'out/solutions//UATPROD'
+        solution-file: 'out/exported//WrapT.zip'
+        solution-folder: 'out/solutions//WrapT'
         solution-type: 'Unmanaged'
         overwrite-files: true
 
     - name: branch-solution, prepare it for a PullRequest
       uses: microsoft/powerplatform-actions/branch-solution@v0
       with:
-         solution-folder: 'out/solutions//UATPROD'
-         solution-target-folder: 'solutions//UATPROD'
+         solution-folder: 'out/solutions//WrapT'
+         solution-target-folder: 'solutions//WrapT'
          repo-token: ${{ secrets.GITHUBTOKEN }}
          allow-empty-commit: true
