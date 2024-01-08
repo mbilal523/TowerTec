@@ -25,7 +25,7 @@ on:
        default: solutions/
 env:
 #edit your values here
-  ENVIRONMENT_URL: 'https://org3221d859.crm4.dynamics.com'
+  ENVIRONMENT_URL: 'https://orgdb1b1774.crm4.dynamics.com'
   CLIENT_ID: '96634b4c-1d62-4b4b-8b74-5eece7bbc08d'
   TENANT_ID: '302edaf0-65d6-449a-a796-b83cfb733f0d'
 permissions:
@@ -45,7 +45,7 @@ jobs:
     - name: who-am-i action
       uses: microsoft/powerplatform-actions/who-am-i@v0
       with:
-         environment-url: 'https://org3221d859.crm4.dynamics.com'
+         environment-url: 'https://orgdb1b1774.crm4.dynamics.com'
          app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
          client-secret: '2Xb8Q~8sBZgv.lvoEpx6huTUSFvmVAKTcN4cRdzN'
          tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d' 
@@ -53,7 +53,7 @@ jobs:
     - name: export-solution action
       uses: microsoft/powerplatform-actions/export-solution@v0
       with:
-         environment-url: 'https://org3221d859.crm4.dynamics.com'
+         environment-url: 'https://orgdb1b1774.crm4.dynamics.com'
          app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
          client-secret: 'gsY8Q~M5S6692nUi7~.x7FV9hosnWKNI2dTebb3T'
          tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
