@@ -72,9 +72,9 @@ jobs:
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
         environment-url: 'https://org41c53d90.crm4.dynamics.com'
-        app-id: ${{ secrets.MYAPPID }}
-        client-secret: ${{ secrets.MYCLIENTSECRET }}
-        tenant-id: ${{ secrets.MYTENANTID }}
+        app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
+        client-secret: '2Xb8Q~8sBZgv.lvoEpx6huTUSFvmVAKTcN4cRdzN'
+        tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
         solution-file: 'out/exported//WrapTesting.zip'
         force-overwrite: true
         publish-changes: true
@@ -83,9 +83,9 @@ jobs:
       uses: microsoft/powerplatform-actions/export-solution@v0
       with:
          environment-url: 'https://org41c53d90.crm4.dynamics.com'
-         app-id: ${{ secrets.MYAPPID }}
-         client-secret: ${{ secrets.MYCLIENTSECRET }}
-         tenant-id: ${{ secrets.MYTENANTID }} 
+         app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
+         client-secret: '2Xb8Q~8sBZgv.lvoEpx6huTUSFvmVAKTcN4cRdzN'
+         tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d' 
          solution-name: 'WrapTesting'
          managed: true
          solution-output-file: 'out/ship//WrapTesting_managed.zip'
@@ -116,9 +116,9 @@ jobs:
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
          environment-url: 'https://org3221d859.crm4.dynamics.com'
-         app-id: ${{ secrets.MYAPPID }}
-         client-secret: ${{ secrets.MYCLIENTSECRET }}
-         tenant-id: ${{ secrets.MYTENANTID }}
+         app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
+         client-secret: '2Xb8Q~8sBZgv.lvoEpx6huTUSFvmVAKTcN4cRdzN'
+         tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
          solution-file: 'out/release//WrapTesting_managed.zip'
          force-overwrite: true
          publish-changes: true
