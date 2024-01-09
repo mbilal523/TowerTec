@@ -9,7 +9,7 @@ on:
       solution_name:
         description: 'name of the solution to worked on from Power Platform'
         required: true
-        default: WrapT
+        default: WrapTesting
        #Do Not change these values
       solution_exported_folder:
         description: 'folder name for staging the exported solution *do not change*'
@@ -26,8 +26,8 @@ on:
 env:
 #edit your values here
   ENVIRONMENT_URL: 'https://org41c53d90.crm4.dynamics.com'
-  CLIENT_ID: '96634b4c-1d62-4b4b-8b74-5eece7bbc08d'
-  TENANT_ID: '302edaf0-65d6-449a-a796-b83cfb733f0d'
+  CLIENT_ID: ${{ secrets.CLIENTEID }}
+  TENANT_ID: ${{ secrets.MYTENANTID }}
 permissions:
   contents: write
 jobs:
@@ -46,32 +46,32 @@ jobs:
       uses: microsoft/powerplatform-actions/who-am-i@v0
       with:
          environment-url: 'https://org41c53d90.crm4.dynamics.com'
-         app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
-         client-secret: '2Xb8Q~8sBZgv.lvoEpx6huTUSFvmVAKTcN4cRdzN'
-         tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d' 
+         app-id: ${{ secrets.MYAPPID }}
+         client-secret: ${{ secrets.MYCLIENTSECRET }}
+         tenant-id: ${{ secrets.MYTENANTID }} 
 
     - name: export-solution action
       uses: microsoft/powerplatform-actions/export-solution@v0
       with:
          environment-url: 'https://org41c53d90.crm4.dynamics.com'
-         app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
-         client-secret: '2Xb8Q~8sBZgv.lvoEpx6huTUSFvmVAKTcN4cRdzN'
-         tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
-         solution-name: 'WrapT'
-         solution-output-file: 'out/exported//WrapT.zip'
+         app-id: ${{ secrets.MYAPPID }}
+         client-secret: ${{ secrets.MYCLIENTSECRET }}
+         tenant-id: ${{ secrets.MYTENANTID }}
+         solution-name: 'WrapTesting'
+         solution-output-file: 'out/exported//WrapTesting.zip'
          
     - name: unpack-solution action
       uses: microsoft/powerplatform-actions/unpack-solution@v0
       with:
-        solution-file: 'out/exported//WrapT.zip'
-        solution-folder: 'out/solutions//WrapT'
+        solution-file: 'out/exported//WrapTesting.zip'
+        solution-folder: 'out/solutions//WrapTesting'
         solution-type: 'Unmanaged'
         overwrite-files: true
 
     - name: branch-solution, prepare it for a PullRequest
       uses: microsoft/powerplatform-actions/branch-solution@v0
       with:
-         solution-folder: 'out/solutions//WrapT'
-         solution-target-folder: 'solutions//WrapT'
+         solution-folder: 'out/solutions//WrapTesting'
+         solution-target-folder: 'solutions//AJC-16-WrapTesting'
          repo-token: ${{ secrets.GITHUBTOKEN }}
          allow-empty-commit: true
