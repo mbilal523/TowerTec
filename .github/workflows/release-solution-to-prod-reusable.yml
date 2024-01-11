@@ -64,8 +64,8 @@ jobs:
     - name: Pack solution
       uses: microsoft/powerplatform-actions/pack-solution@v0
       with:
-        solution-folder: 'solutions//AJC-16-WrapTesting/Other'
-        solution-file: 'out/exported//WrapTesting.zip'
+        solution-folder: 'solutions//AJC-16-WrapTesting/CanvasApps'
+        solution-file: 'out/exported//WrapTesting/CanvasApps.zip'
         solution-type: Unmanaged
 
     - name: Import solution as unmanaged to build env
