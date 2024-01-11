@@ -64,20 +64,20 @@ jobs:
     - name: Pack solution
       uses: microsoft/powerplatform-actions/pack-solution@v0
       with:
-        solution-folder: 'solutions//AJC-16-WrapTesting/CanvasApps'
-        solution-file: 'out/exported//WrapTesting/CanvasApps.zip'
+        solution-folder: 'solutions//AJC-16-WrapTesting'
+        solution-file: 'out/exported//WrapTesting.zip'
         solution-type: Unmanaged
 
-    - name: Import solution as unmanaged to build env
-      uses: microsoft/powerplatform-actions/import-solution@v0
-      with:
-        environment-url: 'https://org41c53d90.crm4.dynamics.com'
-        app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
-        client-secret: '2Xb8Q~8sBZgv.lvoEpx6huTUSFvmVAKTcN4cRdzN'
-        tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
-        solution-file: 'out/exported//WrapTesting.zip'
-        force-overwrite: true
-        publish-changes: true
+    # - name: Import solution as unmanaged to build env
+    #   uses: microsoft/powerplatform-actions/import-solution@v0
+    #   with:
+    #     environment-url: 'https://org41c53d90.crm4.dynamics.com'
+    #     app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
+    #     client-secret: '2Xb8Q~8sBZgv.lvoEpx6huTUSFvmVAKTcN4cRdzN'
+    #     tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
+    #     solution-file: 'out/exported//WrapTesting.zip'
+    #     force-overwrite: true
+    #     publish-changes: true
 
     - name: Export solution as managed
       uses: microsoft/powerplatform-actions/export-solution@v0
