@@ -47,31 +47,32 @@ jobs:
       with:
          environment-url: 'https://org41c53d90.crm4.dynamics.com'
          app-id: ${{ secrets.MYAPPID }}
-         client-secret: ${{ secrets.MYCLIENTSECRET }}
+         # client-secret: ${{ secrets.MYCLIENTSECRET }}
+         client-secret: 'Icm8Q~DW6gqGm1Cn8CO02HaiHTgnYfh_lCla5bU1'
          tenant-id: ${{ secrets.MYTENANTID }} 
 
-    - name: export-solution action
-      uses: microsoft/powerplatform-actions/export-solution@v0
-      with:
-         environment-url: 'https://org41c53d90.crm4.dynamics.com'
-         app-id: ${{ secrets.MYAPPID }}
-         client-secret: ${{ secrets.MYCLIENTSECRET }}
-         tenant-id: ${{ secrets.MYTENANTID }}
-         solution-name: 'WrapTesting'
-         solution-output-file: 'out/exported//WrapTesting.zip'
+    # - name: export-solution action
+    #   uses: microsoft/powerplatform-actions/export-solution@v0
+    #   with:
+    #      environment-url: 'https://org41c53d90.crm4.dynamics.com'
+    #      app-id: ${{ secrets.MYAPPID }}
+    #      client-secret: ${{ secrets.MYCLIENTSECRET }}
+    #      tenant-id: ${{ secrets.MYTENANTID }}
+    #      solution-name: 'WrapTesting'
+    #      solution-output-file: 'out/exported//WrapTesting.zip'
          
-    - name: unpack-solution action
-      uses: microsoft/powerplatform-actions/unpack-solution@v0
-      with:
-        solution-file: 'out/exported//WrapTesting.zip'
-        solution-folder: 'out/solutions//WrapTesting'
-        solution-type: 'Unmanaged'
-        overwrite-files: true
+    # - name: unpack-solution action
+    #   uses: microsoft/powerplatform-actions/unpack-solution@v0
+    #   with:
+    #     solution-file: 'out/exported//WrapTesting.zip'
+    #     solution-folder: 'out/solutions//WrapTesting'
+    #     solution-type: 'Unmanaged'
+    #     overwrite-files: true
 
-    - name: branch-solution, prepare it for a PullRequest
-      uses: microsoft/powerplatform-actions/branch-solution@v0
-      with:
-         solution-folder: 'out/solutions//WrapTesting'
-         solution-target-folder: 'solutions//AJC-16-WrapTesting'
-         repo-token: ${{ secrets.GITHUBTOKEN }}
-         allow-empty-commit: true
+    # - name: branch-solution, prepare it for a PullRequest
+    #   uses: microsoft/powerplatform-actions/branch-solution@v0
+    #   with:
+    #      solution-folder: 'out/solutions//WrapTesting'
+    #      solution-target-folder: 'solutions//AJC-16-WrapTesting'
+    #      repo-token: ${{ secrets.GITHUBTOKEN }}
+    #      allow-empty-commit: true
