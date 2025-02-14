@@ -25,7 +25,7 @@ on:
        default: solutions/
 env:
 #edit your values here
-  ENVIRONMENT_URL: 'https://org41c53d90.crm4.dynamics.com'
+  ENVIRONMENT_URL: 'https://org5569b62d.crm15.dynamics.com'
   CLIENT_ID: ${{ secrets.CLIENTEID }}
   TENANT_ID: ${{ secrets.MYTENANTID }}
 permissions:
@@ -48,7 +48,7 @@ jobs:
     - name: who-am-i action
       uses: microsoft/powerplatform-actions/who-am-i@v1
       with:
-         environment-url: 'https://org41c53d90.crm4.dynamics.com'
+         environment-url: 'https://org5569b62d.crm15.dynamics.com'
          app-id: ${{ secrets.MYAPPID }}
          # client-secret: ${{ secrets.MYCLIENTSECRET }}
          client-secret: 'Icm8Q~DW6gqGm1Cn8CO02HaiHTgnYfh_lCla5bU1'
