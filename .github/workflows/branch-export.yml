@@ -26,7 +26,8 @@ on:
 env:
 #edit your values here
   ENVIRONMENT_URL: 'https://org5569b62d.crm15.dynamics.com'
-  CLIENT_ID: ${{ secrets.CLIENTEID }}
+  # CLIENT_ID: ${{ secrets.CLIENTEID }}
+  client-secret: '94e95571-a37c-432e-bae6-1ae9671a4983'
   TENANT_ID: ${{ secrets.MYTENANTID }}
 permissions:
   contents: write
@@ -44,15 +45,22 @@ jobs:
       
     - name: Install Power Platform Tools
       uses: microsoft/powerplatform-actions/actions-install@v1
-
     - name: who-am-i action
       uses: microsoft/powerplatform-actions/who-am-i@v1
       with:
          environment-url: 'https://org5569b62d.crm15.dynamics.com'
-         app-id: ${{ secrets.MYAPPID }}
-         # client-secret: ${{ secrets.MYCLIENTSECRET }}
-         client-secret: 'Icm8Q~DW6gqGm1Cn8CO02HaiHTgnYfh_lCla5bU1'
-         tenant-id: ${{ secrets.MYTENANTID }} 
+         app-id: 'c37f4956-70a3-4e74-a2d2-225b579d1a21'
+         client-secret: '94e95571-a37c-432e-bae6-1ae9671a4983'
+         tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
+
+    # - name: who-am-i action
+    #   uses: microsoft/powerplatform-actions/who-am-i@v1
+    #   with:
+    #      environment-url: 'https://org5569b62d.crm15.dynamics.com'
+    #      app-id: ${{ secrets.MYAPPID }}
+    #      # client-secret: ${{ secrets.MYCLIENTSECRET }}
+    #      client-secret: 'Icm8Q~DW6gqGm1Cn8CO02HaiHTgnYfh_lCla5bU1'
+    #      tenant-id: ${{ secrets.MYTENANTID }} 
 
     # - name: export-solution action
     #   uses: microsoft/powerplatform-actions/export-solution@v0
