@@ -7,10 +7,10 @@ on:
         description: "Jira Issue Key"
         required: true
         type: string
-      # summary:
-      #   description: "Issue Summary"
-      #   required: false
-      #   type: string
+      summary:
+        description: "Issue Summary"
+        required: false
+        type: string
       # status:
       #   description: "Issue Status"
       #   required: false
@@ -26,7 +26,7 @@ jobs:
       - name: Display Jira Issue Information
         run: |
           echo "Jira Issue Key: ${{ github.event.inputs.issue_key }}"
-          # echo "Summary: ${{ github.event.inputs.summary }}"
+          echo "Summary: ${{ github.event.inputs.summary }}"
           # echo "Status: ${{ github.event.inputs.status }}"
  
       - name: Trigger Other Actions (Optional)
