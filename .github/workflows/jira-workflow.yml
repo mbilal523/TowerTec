@@ -1,0 +1,16 @@
+name: Jira Webhook Trigger
+ 
+on:
+  repository_dispatch:
+    types: [jira_issue_updated]
+ 
+jobs:
+  handle_jira_webhook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Jira Payload
+        run: echo "Received Jira Issue Key: ${{ github.event.client_payload.issue.key }}"
+      - name: Use Jira Data
+        run: |
+          echo "Jira Issue: ${{ github.event.client_payload.issue.key }}"
+          echo "Summary: ${{ github.event.client_payload.issue.summary }}"
