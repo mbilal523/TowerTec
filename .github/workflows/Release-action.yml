@@ -1,0 +1,22 @@
+name: Release action
+# Call the reusable workflow release-solution-with-inputs.yml
+# Release your solution to prod when you create a new release.
+
+on:
+  release:
+      types: [created]        
+permissions:
+  contents: write
+jobs:
+  Release-solution-WrapTesting:
+    uses: ./.github/workflows/release-solution-to-prod-reusable.yml
+    with:
+      #You can specify the solution name here
+      solution_name: WrapTesting
+      #Update your values here
+      BUILD_ENVIRONMENT_URL: 'https://org41c53d90.crm4.dynamics.com'
+      PRODUCTION_ENVIRONMENT_URL: 'https://org3221d859.crm4.dynamics.com'
+      CLIENT_ID: '96634b4c-1d62-4b4b-8b74-5eece7bbc08d'
+      TENANT_ID: '302edaf0-65d6-449a-a796-b83cfb733f0d'    
+    secrets:
+      envSecret: '2Xb8Q~8sBZgv.lvoEpx6huTUSFvmVAKTcN4cRdzN'

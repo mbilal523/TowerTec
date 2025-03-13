@@ -1,0 +1,33 @@
+name: Jira Webhook Trigger
+ 
+on:
+  workflow_dispatch:
+    inputs:
+      issue_key:
+        description: "Jira Issue Key"
+        required: true
+        type: string
+      summary:
+        description: "Issue Summary"
+        required: false
+        type: string
+      # status:
+      #   description: "Issue Status"
+      #   required: false
+      #   type: string
+ 
+jobs:
+  process-jira-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+ 
+      - name: Display Jira Issue Information
+        run: |
+          echo "Jira Issue Key: ${{ github.event.inputs.issue_key }}"
+          echo "Summary: ${{ github.event.inputs.summary }}"
+          # echo "Status: ${{ github.event.inputs.status }}"
+ 
+      - name: Trigger Other Actions (Optional)
+        run: echo "Further processing can be done here, like updating files or triggering builds."

@@ -1,0 +1,90 @@
+name: export-and-branch-solution
+# Export solution from DEV environment
+#  unpack it and prepare, commit and push a git branch with the changes
+
+on:
+  workflow_dispatch:
+    inputs:
+      # Change this value
+      solution_name:
+        description: 'name of the solution to worked on from Power Platform'
+        required: true
+        default: WrapTesting
+       #Do Not change these values
+      solution_exported_folder:
+        description: 'folder name for staging the exported solution *do not change*'
+        required: true
+        default: out/exported/
+      solution_folder:
+        description: 'staging the unpacked solution folder before check-in *do not change*'
+        required: true
+        default: out/solutions/
+      solution_target_folder: 
+       description: 'folder name to be created and checked in *do not change*'
+       required: true
+       default: solutions/
+env:
+#edit your values here
+  ENVIRONMENT_URL: 'https://org5569b62d.crm15.dynamics.com'
+  # CLIENT_ID: ${{ secrets.CLIENTEID }}
+  client-secret: 'Icm8Q~DW6gqGm1Cn8CO02HaiHTgnYfh_lCla5bU1'
+  tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
+  # TENANT_ID: ${{ secrets.MYTENANTID }}
+permissions:
+  contents: write
+jobs:
+  export-from-dev:
+    runs-on: windows-latest
+    # or you can say runs-on: ubuntu-latest
+    env:
+      RUNNER_DEBUG: 1
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: true
+      
+    - name: Install Power Platform Tools
+      uses: microsoft/powerplatform-actions/actions-install@v1
+    - name: who-am-i action
+      uses: microsoft/powerplatform-actions/who-am-i@v1
+      with:
+         environment-url: 'https://org5569b62d.crm15.dynamics.com'
+         app-id: '94e95571-a37c-432e-bae6-1ae9671a4983'
+         client-secret: 'Icm8Q~DW6gqGm1Cn8CO02HaiHTgnYfh_lCla5bU1'
+         tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0d'
+
+    # - name: who-am-i action
+    #   uses: microsoft/powerplatform-actions/who-am-i@v1
+    #   with:
+    #      environment-url: 'https://org5569b62d.crm15.dynamics.com'
+    #      app-id: ${{ secrets.MYAPPID }}
+    #      # client-secret: ${{ secrets.MYCLIENTSECRET }}
+    #      client-secret: 'Icm8Q~DW6gqGm1Cn8CO02HaiHTgnYfh_lCla5bU1'
+    #      tenant-id: ${{ secrets.MYTENANTID }} 
+
+    # - name: export-solution action
+    #   uses: microsoft/powerplatform-actions/export-solution@v0
+    #   with:
+    #      environment-url: 'https://org41c53d90.crm4.dynamics.com'
+    #      app-id: ${{ secrets.MYAPPID }}
+    #      client-secret: ${{ secrets.MYCLIENTSECRET }}
+    #      tenant-id: ${{ secrets.MYTENANTID }}
+    #      solution-name: 'WrapTesting'
+    #      solution-output-file: 'out/exported//WrapTesting.zip'
+         
+    # - name: unpack-solution action
+    #   uses: microsoft/powerplatform-actions/unpack-solution@v0
+    #   with:
+    #     solution-file: 'out/exported//WrapTesting.zip'
+    #     solution-folder: 'out/solutions//WrapTesting'
+    #     solution-type: 'Unmanaged'
+    #     overwrite-files: true
+
+    # - name: branch-solution, prepare it for a PullRequest
+    #   uses: microsoft/powerplatform-actions/branch-solution@v0
+    #   with:
+    #      solution-folder: 'out/solutions//WrapTesting'
+    #      solution-target-folder: 'solutions//AJC-16-WrapTesting'
+    #      repo-token: ${{ secrets.GITHUBTOKEN }}
+    #      allow-empty-commit: true
